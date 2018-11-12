@@ -55,12 +55,14 @@ func dropNeo4j(cfg *config.Model) error {
 	}
 	defer conn.Close()
 	res, err := conn.ExecNeo("MATCH(n) DETACH DELETE n", nil)
-	log.Debug("results", log.Data{
-		"delete results": res.Metadata()["stats"],
-	})
 	if err != nil {
 		return err
 	}
+
+	log.Debug("results", log.Data{
+		"delete results": res.Metadata()["stats"],
+	})
+
 	log.Info("drop neo4j completed successfully", nil)
 	return nil
 }
