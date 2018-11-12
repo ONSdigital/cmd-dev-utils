@@ -1,0 +1,8 @@
+mongo-url: localhost:27017
+mongo-collections:
+  - imports
+  - datasets
+  - filters
+  - codelists
+  - test
+neo4j-url: bolt://localhost:7687
